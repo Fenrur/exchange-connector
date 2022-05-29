@@ -1,8 +1,5 @@
 package io.contek.invoker.deribit.api.common;
 
-import javax.annotation.concurrent.NotThreadSafe;
-
-@NotThreadSafe
 public class _Trade {
 
   public long amount;
@@ -28,5 +25,4 @@ public class _Trade {
   public String trigger;
   public String advanced;
   public boolean mmp;
-
 }

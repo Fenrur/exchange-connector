@@ -2,14 +2,10 @@ package io.contek.invoker.binancefutures.api.websocket.market;
 
 import io.contek.invoker.binancefutures.api.websocket.common.WebSocketEventMessage;
 
-import javax.annotation.concurrent.NotThreadSafe;
-
-@NotThreadSafe
 public class ForceOrderEvent extends WebSocketEventMessage {
 
   public Order o;
 
-  @NotThreadSafe
   public static class Order {
 
     public String s; // Symbol

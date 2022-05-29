@@ -2,14 +2,10 @@ package io.contek.invoker.binancedelivery.api.websocket.user;
 
 import io.contek.invoker.binancedelivery.api.websocket.common.WebSocketEventMessage;
 
-import javax.annotation.concurrent.Immutable;
-import javax.annotation.concurrent.NotThreadSafe;
-import javax.annotation.concurrent.ThreadSafe;
 import java.util.List;
 
 import static io.contek.invoker.binancedelivery.api.websocket.user.constants.UserEventTypeKeys._ACCOUNT_UPDATE;
 
-@ThreadSafe
 public final class AccountUpdateChannel
     extends UserWebSocketChannel<AccountUpdateChannel.Id, AccountUpdateChannel.Message> {
 
@@ -22,7 +18,6 @@ public final class AccountUpdateChannel
     return Message.class;
   }
 
-  @Immutable
   public static final class Id extends UserWebSocketChannelId<Message> {
 
     private static final Id INSTANCE = new Id();
@@ -32,13 +27,11 @@ public final class AccountUpdateChannel
     }
   }
 
-  @NotThreadSafe
   public static final class Message extends WebSocketEventMessage {
 
     public Long T; // transaction
     public UpdateData a; // account update
 
-    @NotThreadSafe
     public static final class UpdateData {
 
       public String m; // event reason type
@@ -47,7 +40,6 @@ public final class AccountUpdateChannel
     }
   }
 
-  @NotThreadSafe
   public static final class BalanceUpdate {
 
     public String a; // asset
@@ -55,7 +47,6 @@ public final class AccountUpdateChannel
     public Double cw; // cross wallet balance
   }
 
-  @NotThreadSafe
   public static final class PositionUpdate {
 
     public String s; // symbol

@@ -4,13 +4,9 @@ import io.contek.invoker.coinbasepro.api.websocket.WebSocketChannel;
 import io.contek.invoker.coinbasepro.api.websocket.WebSocketChannelId;
 import io.contek.invoker.coinbasepro.api.websocket.common.WebSocketChannelMessage;
 
-import javax.annotation.concurrent.Immutable;
-import javax.annotation.concurrent.NotThreadSafe;
-import javax.annotation.concurrent.ThreadSafe;
 import java.util.ArrayList;
 import java.util.List;
 
-@ThreadSafe
 public final class Level2Channel extends WebSocketChannel<Level2Channel.Id, Level2Channel.Message> {
 
   Level2Channel(Level2Channel.Id id) {
@@ -22,7 +18,6 @@ public final class Level2Channel extends WebSocketChannel<Level2Channel.Id, Leve
     return Message.class;
   }
 
-  @Immutable
   public static final class Id extends WebSocketChannelId<Level2Channel.Message> {
 
     private Id(String productId) {
@@ -34,26 +29,21 @@ public final class Level2Channel extends WebSocketChannel<Level2Channel.Id, Leve
     }
   }
 
-  @NotThreadSafe
   public abstract static class Message extends WebSocketChannelMessage {}
 
-  @NotThreadSafe
   public static final class L2UpdateMessage extends Message {
 
     public String time;
     public List<L2UpdateChange> changes;
   }
 
-  @NotThreadSafe
   public static final class L2UpdateChange extends ArrayList<String> {}
 
-  @NotThreadSafe
   public static final class SnapshotMessage extends Message {
 
     public List<SnapshotLevel> bids;
     public List<SnapshotLevel> asks;
   }
 
-  @NotThreadSafe
   public static final class SnapshotLevel extends ArrayList<Double> {}
 }
