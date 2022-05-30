@@ -23,4 +23,8 @@ public class _Market {
   public Double sizeIncrement;
   public Boolean restricted;
   public Double volumeUsd24h;
+  public Double priceHigh24h;
+  public Double largeOrderThreshold;
+  public Boolean isEtfMarket;
+  public Double priceLow24h;
 }
